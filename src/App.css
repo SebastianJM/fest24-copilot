@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Garaje-0703";
+  src: local("Garaje"),
+   url("./fonts/Garaje.ttf") format("truetype");
+  font-weight: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "Garaje0504";
+  src: local("Garaje 0504 VAR"),
+   url("./fonts/Garaje0504.ttf") format("truetype");
+  font-weight: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+  font-family: "Garaje-0703";
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.button-base {
+  background-color: #8EEE00;
+  padding: 10px;
+  font-family: "Garaje-0703";
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.button-base:hover{
+  border: 2px solid #5551ff;
+  border-bottom: 5px solid #5551ff;
+  border-right: 5px solid #5551ff;  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.border-base {
+  border: 2px solid;
+  border-bottom: 5px solid;
+  border-right: 5px solid;
+  border-radius: 5px;
+}
+
+.input-base {
+  border: 2px solid;
+  border-radius: 5px;
+  height: 65px;
+  line-height: normal;
+  user-select: auto;
+  font-size: 16px;
+  border-bottom: 5px solid;
+  border-right: 5px solid;
+  padding-left: 12px; 
+} :focus{
+  border: 2px solid #C757FF;
+  border-bottom: 5px solid #C757FF;
+  border-right: 5px solid #C757FF;  
 }
