@@ -16,7 +16,7 @@ function ChallengePowerPoint() {
   function validateAnswer() {
     console.log(timerRef.current.getValue());
     setFeedback("Respuesta incorrecta. Vuelve a intentarlo.")
-    if(answer == "daya") {
+    if(answer.toLowerCase() == "el futuro y la ética de la ia" || answer.toLowerCase() == "el futuro y la etica de la ia") {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

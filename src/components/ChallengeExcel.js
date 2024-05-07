@@ -16,7 +16,7 @@ function ChallengeExcel() {
   function validateAnswer() {
     console.log(timerRef.current.getValue());
     setFeedback("Respuesta incorrecta. Vuelve a intentarlo.")
-    if(answer == "daya") {
+    if(answer == "3721") {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
