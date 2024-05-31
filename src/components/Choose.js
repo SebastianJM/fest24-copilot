@@ -1,18 +1,25 @@
 import title from './../images/title2.png';
-import challenge1 from './../images/challenge1.png';
-import challenge2 from './../images/challenge2.png';
-import challenge3 from './../images/challenge3.png';
+import challenges from './../utils/Challenges.js'
 import './../styles/Home.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Home() {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    function nextPage(id) {
+        navigate('/challenge', { state: { id : id } });
+    }
+
     return (  
         <div style={{width: "100vw", height: "100vh", position: "relative", backgroundColor: "#FFC200"}}>
-            <img src={title} style={{width: "22vw", height: "17vh", position: "absolute", top: "13vh", left: "18vw"}} />
-            <img src={challenge1} style={{width: "44vw", height: "18vh", position: "absolute", top: "25vh", left: "37vw"}} onClick={() => navigate('/challenge1')}/>
-            <img src={challenge2} style={{width: "44vw", height: "18vh", position: "absolute", top: "45vh", left: "29vw"}} onClick={() => navigate('/challenge2')}/>
-            <img src={challenge3} style={{width: "44vw", height: "18vh", position: "absolute", top: "65vh", left: "21vw"}} onClick={() => navigate('/challenge3')}/>
+            <img src={title} style={{width: "50vw", height: "auto", position: "absolute", top: "10vh", left: "25vw"}} />
+            <img src={challenges[0].banner} style={{width: "42vw", height: "auto", position: "absolute", top: "30vh", left: "6vw"}} onClick={() => nextPage(0)}/>
+            <img src={challenges[1].banner} style={{width: "42vw", height: "auto", position: "absolute", top: "30vh", left: "53vw"}} onClick={() => nextPage(1)}/>
+            <img src={challenges[2].banner} style={{width: "42vw", height: "auto", position: "absolute", top: "50vh", left: "6vw"}} onClick={() => nextPage(2)}/>
+            <img src={challenges[3].banner} style={{width: "42vw", height: "auto", position: "absolute", top: "50vh", left: "53vw"}} onClick={() => nextPage(3)}/>
+            <img src={challenges[4].banner} style={{width: "42vw", height: "auto", position: "absolute", top: "70vh", left: "6vw"}} onClick={() => nextPage(4)}/>
+            <img src={challenges[5].banner} style={{width: "42vw", height: "auto", position: "absolute", top: "70vh", left: "53vw"}} onClick={() => nextPage(5)}/>
         </div> 
     );
 }

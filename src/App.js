@@ -3,13 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Choose from './components/Choose';
 import './App.css';
-import Challenge1 from './components/Challenge1';
-import Challenge2 from './components/Challenge2';
-import Challenge3 from './components/Challenge3';
-import ChallengeExcel from './components/ChallengeExcel';
-import ChallengePowerPoint from './components/ChallengePowerPoint';
-import ChallengeWord from './components/ChallengeWord';
+import Challenge from './components/Challenge';
 import Result from './components/Result';
+import Steps from './components/Steps';
+import Form from './components/Form';
+import Finish from './components/Finish';
 
 function App() {
   return (
@@ -18,13 +16,11 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/choose" element={<Choose />} />
-          <Route path="/challenge1" element={<Challenge1 />} />
-          <Route path="/challenge2" element={<Challenge2 />} />
-          <Route path="/challenge3" element={<Challenge3 />} />
-          <Route path="/challengeExcel" element={<ChallengeExcel />} />
-          <Route path="/challengePowerPoint" element={<ChallengePowerPoint />} />
-          <Route path="/challengeWord" element={<ChallengeWord />} />
+          <Route path="/challenge" element={<Challenge />} />
+          <Route path="/steps" element={<Steps />} />
           <Route path="/result" element={<Result />} />
+          <Route path="/form" element={<Form />} />
+          <Route path="/finish" element={<Finish />} />
         </Routes>
       </div>
     </Router>

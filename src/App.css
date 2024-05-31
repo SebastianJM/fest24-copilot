@@ -12,6 +12,20 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: "Garaje0603";
+  src: local("Garaje 0603 VAR"),
+   url("./fonts/Garaje0603.ttf") format("truetype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Garaje0703";
+  src: local("Garaje 0703 VAR"),
+   url("./fonts/Garaje0703.ttf") format("truetype");
+  font-weight: normal;
+}
+
 .app {
   font-family: "Garaje-0703";
 }
@@ -19,8 +33,12 @@
 .button-base {
   background-color: #8EEE00;
   padding: 10px;
-  font-family: "Garaje-0703";
-  font-weight: bold;
+  font-family: "Garaje0603";
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  height: 120px;
+  font-size: 50px;
 }
 
 .button-base:hover{
@@ -30,24 +48,96 @@
 }
 
 .border-base {
-  border: 2px solid;
-  border-bottom: 5px solid;
-  border-right: 5px solid;
-  border-radius: 5px;
+  border: 3px solid;
+  border-bottom: 10px solid;
+  border-right: 10px solid;
+  border-radius: 10px;
+}
+
+.button-text {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  transition: top 0.3s;
+  font-size: 50px;
+}
+
+.button-arrow {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  transition: top 0.3s;
+}
+
+.button-base:hover .button-text {
+  animation: fallAndReturn 0.5s forwards;
+}
+
+.button-base:hover .button-arrow {
+  animation: fallAndReturn 0.5s forwards;
+}
+
+
+@keyframes fallAndReturn {
+  0% {
+    top: 50%;
+    opacity: 1;
+  }
+  50% {
+    top: 100%;
+    opacity: 0;
+  }
+  51% {
+    top: -100%;
+    opacity: 0;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
 }
 
 .input-base {
-  border: 2px solid;
-  border-radius: 5px;
+  border: 3px solid;
+  border-radius: 10px;
   height: 65px;
   line-height: normal;
   user-select: auto;
   font-size: 16px;
-  border-bottom: 5px solid;
-  border-right: 5px solid;
+  border-bottom: 8px solid;
+  border-right: 8px solid;
   padding-left: 12px; 
 } :focus{
-  border: 2px solid #C757FF;
-  border-bottom: 5px solid #C757FF;
-  border-right: 5px solid #C757FF;  
+  border: 3px solid #C757FF;
+  border-bottom: 8px solid #C757FF;
+  border-right: 8px solid #C757FF;  
+}
+
+.box-container {
+  margin: 0px;
+  padding: 0px;
+  width: 80vw;
+  height: 87vh;
+  background-color: white;  
+}
+
+.box-header {
+  background-color: #C757FF;
+  color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7%;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }

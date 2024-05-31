@@ -2,6 +2,7 @@ import React, { forwardRef, useImperativeHandle, useState, useEffect } from 'rea
 
 const Timer = forwardRef((props, ref) => {
   const [time, setTime] = useState({ minutes: 0, seconds: 0 });
+  const { stopTimer } = props;
 
   useImperativeHandle(ref, () => ({
     getValue() {
@@ -11,18 +12,20 @@ const Timer = forwardRef((props, ref) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(prevTime => {
-        const updatedSeconds = prevTime.seconds + 1;
-        const updatedMinutes = prevTime.minutes + (updatedSeconds === 60 ? 1 : 0);
-        return {
-          minutes: updatedMinutes % 60,
-          seconds: updatedSeconds % 60,
-        };
-      });
+      if(!stopTimer) {
+        setTime(prevTime => {
+          const updatedSeconds = prevTime.seconds + 1;
+          const updatedMinutes = prevTime.minutes + (updatedSeconds === 60 ? 1 : 0);
+          return {
+            minutes: updatedMinutes % 60,
+            seconds: updatedSeconds % 60,
+          };
+        });
+      }  
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [stopTimer]);
 
   // Function to get the total time in seconds
   const getTimeInSeconds = () => {
@@ -30,8 +33,8 @@ const Timer = forwardRef((props, ref) => {
   };
 
   return (
-    <div style={{position: "absolute", top: "22vh", left: "70vw"}}>
-      <div style={{fontSize: "90px", fontWeight: "bold"}}>
+    <div style={{position: "absolute", top: "9vh", left: "50vw"}}>
+      <div style={{fontSize: "100px", fontWeight: "bold"}}>
         {String(time.minutes).padStart(2, '0')}:{String(time.seconds).padStart(2, '0')}
       </div>
     </div>
